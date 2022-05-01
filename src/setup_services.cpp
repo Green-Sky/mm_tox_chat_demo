@@ -2,10 +2,11 @@
 
 //#include <mm/screens/mm_logo_screen.hpp>
 #include "./screens/test_screen.hpp"
+#include "services/mm_tox/tox_service.hpp"
 
 template<>
 bool setup_service<MM::Services::FilesystemService>(MM::Engine& engine, [[maybe_unused]] int argc, [[maybe_unused]] char** argv) {
-	engine.addService<MM::Services::FilesystemService>(argv[0], "mm_template", true, true
+	engine.addService<MM::Services::FilesystemService>(argv[0], "mm_tox_chat_demo", true, true
 #ifndef NDEBUG
 		// hack for local machine
 		//,std::vector<std::tuple<std::string, std::string, bool>>{{"../res/", "/", true}}
@@ -52,7 +53,7 @@ bool setup_service<MM::Services::ScreenDirector>(MM::Engine& engine, [[maybe_unu
 	//MM::Screens::create_mm_logo(
 		//engine,
 		//sd.screens["MM::Screens::mm_logo"],
-		//"my_project::Screens::main_menu"
+		//"my_project::Screens::test_screen"
 	//);
 	my_project::Screens::create_test_screen(engine, sd.screens["my_project::Screens::test_screen"]);
 
@@ -68,4 +69,12 @@ bool setup_service<MM::Services::ScreenDirector>(MM::Engine& engine, [[maybe_unu
 	return true;
 }
 
+template<>
+bool setup_service<MM::Services::Tox::ToxService>(MM::Engine& engine, [[maybe_unused]] int argc, [[maybe_unused]] char** argv) {
+	engine.addService<MM::Services::Tox::ToxService>(engine, "tox_save.tox");
+
+	// dont enable by default
+
+	return true;
+}
 

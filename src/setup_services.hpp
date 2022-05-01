@@ -6,6 +6,7 @@
 #include <mm/services/filesystem.hpp>
 #include <mm/services/sdl_service.hpp>
 #include <mm/services/screen_director.hpp>
+#include <services/mm_tox/tox_service.hpp>
 
 // templates
 template<typename Service>
@@ -37,4 +38,6 @@ bool setup_service<MM::Services::SDLService>(MM::Engine& engine, int argc, char*
 template<>
 bool setup_service<MM::Services::ScreenDirector>(MM::Engine& engine, int argc, char** argv);
 
+template<>
+bool setup_service<MM::Services::Tox::ToxService>(MM::Engine& engine, int argc, char** argv);
 

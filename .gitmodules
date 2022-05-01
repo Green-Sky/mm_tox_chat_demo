@@ -1,3 +1,6 @@
 [submodule "external/MushMachine"]
 	path = external/MushMachine
 	url = https://github.com/MadeOfJelly/MushMachine.git
+[submodule "external/mm_tox"]
+	path = external/mm_tox
+	url = https://github.com/Green-Sky/mm_tox.git

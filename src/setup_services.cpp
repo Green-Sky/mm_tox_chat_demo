@@ -2,7 +2,6 @@
 
 //#include <mm/screens/mm_logo_screen.hpp>
 #include "./screens/test_screen.hpp"
-#include "services/mm_tox/tox_service.hpp"
 
 template<>
 bool setup_service<MM::Services::FilesystemService>(MM::Engine& engine, [[maybe_unused]] int argc, [[maybe_unused]] char** argv) {
@@ -70,8 +69,8 @@ bool setup_service<MM::Services::ScreenDirector>(MM::Engine& engine, [[maybe_unu
 }
 
 template<>
-bool setup_service<MM::Services::Tox::ToxService>(MM::Engine& engine, [[maybe_unused]] int argc, [[maybe_unused]] char** argv) {
-	engine.addService<MM::Services::Tox::ToxService>(engine, "tox_save.tox");
+bool setup_service<MM::Tox::Services::ToxService>(MM::Engine& engine, [[maybe_unused]] int argc, [[maybe_unused]] char** argv) {
+	engine.addService<MM::Tox::Services::ToxService>(engine, "tox_save.tox");
 
 	// dont enable by default
 

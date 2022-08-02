@@ -10,6 +10,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+#include(CheckIPOSupported)
+#check_ipo_supported()
+#set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
+
 if(NOT CMAKE_BUILD_TYPE)
 	set(CMAKE_BUILD_TYPE "Debug")
 endif()
@@ -19,8 +23,6 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
 option(BUILD_TESTING "Enable testing with ctest." OFF)
-
-#add_subdirectory("external/argh")
 
 include("${CMAKE_CURRENT_LIST_DIR}/external/MushMachine/mm_options_and_defines.cmake")
 add_subdirectory("external/MushMachine" EXCLUDE_FROM_ALL)
